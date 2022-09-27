@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	 rel="stylesheet"></link>
+	<script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+    <title>CRUD Sample</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <link rel="stylesheet" href="/css/index.css"></head>
+</head>
+<body>
+
+	<div class="wrapper">
+	<div class="ground">
+	
+    <h2 class="header">一覧ページ</h2>
+    <table>
+        <tr><th>id</th><th>name</th><th>old</th></tr>
+        <tr th:each="test : ${testList}">
+            <td th:text="${test.id}"></td>
+            <td th:text="${test.name}"></td>
+            <td th:text="${test.old}"></td>
+            <td>
+                <a href="#" th:href="@{'/sample/edit/' + ${test.id}}"><button>編集</button></a>
+            </td>
+            <td>
+                <form action="#" th:action="@{'/sample/delete/' + ${test.id}}" method="post">
+                    <button>削除</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <div><a href="#" th:href="@{/sample/form}">入力フォーム</a></div>
+</body>
+</html>

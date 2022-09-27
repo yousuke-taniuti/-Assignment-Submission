@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet"></link>
+    <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <title>CRUD Sample</title>
+	<link rel="stylesheet" href="/css/edit.css"></link>
+</head>
+<body>
+   <div class="wrapper"> 
+    <div class="ground">
+    <h2 class="header" >編集フォーム</h2>
+    <form method="post" action="#" th:action="@{'/sample/edit/' + ${testForm.id}}" th:object="${testForm}">
+       <div class="name">
+        <label for="name">名前</label>
+        <input type="text" id="name" name="name" class="name" th:value="${testForm.name}"><br>
+      </div>
+      <div class="old">
+        <label for="old">年齢</label>
+        <input type="text" id="old" name="old" class="old" th:value="${testForm.old}"><br>
+      </div>
+        <input align="center" type="submit" value="送信" class="button">
+    </form>
+    <div class="link"><a href="#" th:href="@{/sample}">トップページ</a></div>
+    
+    </div>
+    </div>
+    
+    
+</body>
+</html>
